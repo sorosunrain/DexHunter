@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        abi: [ aarch64-linux-android, x86_64-linux-android ]
+        abi: [ aarch64-linux-android, armv7-linux-androideabi, x86_64-linux-android ]
 
     name: Build (${{ matrix.abi }})
 
@@ -41,6 +41,7 @@ jobs:
       - name: Prepare environment
         run: |
           rustup target add aarch64-linux-android
+          rustup target add armv7-linux-androideabi
           rustup target add x86_64-linux-android
           cargo install cargo-make || true
 
